@@ -1,0 +1,12 @@
+{{- /* Gambar utama halaman: featured_image, atau gambar pertama di isi artikel. Kosong jika tidak ada. */ -}}
+{{- $img := "" -}}
+{{- if .Params.featured_image -}}
+  {{- $img = .Params.featured_image -}}
+{{- else -}}
+  {{- $m := findRESubmatch `!\[[^\]]*\]\(([^)\s]+)` .RawContent 1 -}}
+  {{- if $m -}}{{- $img = index (index $m 0) 1 -}}{{- else -}}
+    {{- $m2 := findRESubmatch `<img[^>]+src=["']([^"']+)["']` .RawContent 1 -}}
+    {{- if $m2 -}}{{- $img = index (index $m2 0) 1 -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $img -}}

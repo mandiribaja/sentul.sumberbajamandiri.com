@@ -1,0 +1,18 @@
+{{- /* Kartu artikel (arsip & "Artikel Terkait"). Pakai: partial "post-card.html" (dict "page" . "label" "Selengkapnya") */ -}}
+{{- $p := .page -}}
+{{- $label := .label | default "Selengkapnya" -}}
+{{- $img := partialCached "first-image.html" $p $p.RelPermalink -}}
+{{- if not $img }}{{ $img = site.Params.defaultImage | default "/images/placeholder.svg" }}{{ end -}}
+{{- $excerpt := or $p.Params.description $p.Params.meta_description -}}
+{{- if not $excerpt }}{{ $excerpt = $p.Summary | plainify | htmlUnescape | truncate 160 }}{{ end -}}
+<article class="post-card">
+  <a class="post-card-img" href="{{ $p.Permalink }}" tabindex="-1" aria-hidden="true">
+    <img src="{{ $img }}" alt="{{ $p.Title }}" loading="lazy" decoding="async">
+  </a>
+  <div class="post-card-body">
+    <time class="post-card-date" datetime="{{ $p.Date.Format "2006-01-02" }}">{{ $p.Date.Format "2 January 2006" }}</time>
+    <h3 class="post-card-title"><a href="{{ $p.Permalink }}">{{ $p.Title }}</a></h3>
+    <p class="post-card-excerpt">{{ $excerpt }}</p>
+    <a class="post-card-btn" href="{{ $p.Permalink }}">{{ $label }}</a>
+  </div>
+</article>

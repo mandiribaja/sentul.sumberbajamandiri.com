@@ -1,0 +1,13 @@
+{{- /* Halaman hub: semua halaman yang judulnya memuat salah satu kata di front matter `match`. Input: slice kata. */ -}}
+{{- $terms := slice -}}
+{{- range . }}{{ $terms = $terms | append (printf " %s " (replaceRE `[^a-z0-9]+` " " (lower .))) }}{{ end -}}
+{{- $res := slice -}}
+{{- range site.RegularPages -}}
+  {{- if not (hasPrefix .RelPermalink "/produk/") -}}
+    {{- $t := printf " %s " (replaceRE `[^a-z0-9]+` " " (lower .Title)) -}}
+    {{- $hit := false -}}
+    {{- range $terms }}{{ if in $t . }}{{ $hit = true }}{{ end }}{{ end -}}
+    {{- if $hit }}{{ $res = $res | append . }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+{{- return (sort $res "Title") -}}

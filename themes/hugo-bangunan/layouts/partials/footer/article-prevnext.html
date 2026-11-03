@@ -1,0 +1,4 @@
+<nav class="article-nextprev" aria-label="Navigasi artikel">
+  {{ with .NextInSection }}<a class="prev" href="{{ .Permalink }}?ref=footer">&laquo; Post Sebelumnya</a>{{ end }}
+  {{ with .PrevInSection }}<a class="next" href="{{ .Permalink }}?ref=footer">Berikutnya &raquo;</a>{{ end }}
+</nav>

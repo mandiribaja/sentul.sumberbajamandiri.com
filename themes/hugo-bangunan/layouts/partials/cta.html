@@ -1,0 +1,13 @@
+{{- $c := partialCached "contact.html" "x" -}}
+{{- if or $c.wa $c.tel }}
+<aside class="cta-band">
+  <div>
+    <h2>Butuh penawaran harga dan stok terbaru?</h2>
+    <p>Sampaikan jenis, ukuran, dan jumlah kebutuhan Anda. Tim {{ site.Params.name }} siap membantu.</p>
+  </div>
+  <div class="cta-actions">
+    {{ with $c.wa }}<a class="btn btn-wa" href="{{ . }}" rel="noopener">Chat WhatsApp</a>{{ end }}
+    {{ with $c.tel }}<a class="btn btn-red" href="{{ . }}">Telepon Sekarang</a>{{ end }}
+  </div>
+</aside>
+{{- end }}

@@ -1,0 +1,25 @@
+{{- /*
+  Mengubah rujukan gambar di artikel (mis. "images/besi-pipa-4.png") menjadi URL yang benar.
+  Artikel menulis gambar secara relatif, sedangkan file aslinya ada di subfolder
+  static/images/<pipa|bogor|siku|...>/. Folder dicari berurutan; kalau tidak ada, jatuh ke /images/<nama>.
+  Dipanggil lewat partialCached (per nama file), jadi pengecekan disk hanya sekali per gambar.
+*/ -}}
+{{- $src := . -}}
+{{- if or (hasPrefix $src "http") (hasPrefix $src "//") (hasPrefix $src "/") (hasPrefix $src "data:") (hasPrefix $src "#") -}}
+  {{- $src -}}
+{{- else -}}
+  {{- $rel := strings.TrimPrefix "images/" $src -}}
+  {{- $name := path.Base $src -}}
+  {{- $found := "" -}}
+  {{- if fileExists (printf "static/images/%s" $rel) -}}
+    {{- $found = printf "/images/%s" $rel -}}
+  {{- end -}}
+  {{- if not $found -}}
+    {{- range site.Params.imageFolders -}}
+      {{- if and (not $found) (fileExists (printf "static/images/%s/%s" . $name)) -}}
+        {{- $found = printf "/images/%s/%s" . $name -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if $found -}}{{- $found -}}{{- else -}}{{- printf "/images/%s" $rel -}}{{- end -}}
+{{- end -}}

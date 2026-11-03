@@ -1,0 +1,14 @@
+{{- /*
+  Indeks pencarian untuk halaman /cari/. Dibuat sebagai /index.json (output JSON beranda; lihat [outputs] di hugo.toml).
+  Hanya memuat artikel (bukan halaman khusus seperti promo/profile/gallery/cari), tanpa isi artikel agar ringan.
+  Field: t=judul, u=url, d=deskripsi, k=focus_keyphrase, s=section, i=gambar, dt=tanggal
+*/ -}}
+{{- $list := slice -}}
+{{- range site.RegularPages -}}
+  {{- if and (not .Params.layout) (not .Params.noindex) -}}
+    {{- $img := partialCached "first-image.html" . .RelPermalink -}}
+    {{- $d := or .Params.description .Params.meta_description (.Summary | plainify | htmlUnescape) -}}
+    {{- $list = $list | append (dict "t" .Title "u" .RelPermalink "d" ($d | truncate 150) "k" (.Params.focus_keyphrase | default "") "s" .Section "i" $img "dt" (.Date.Format "2 January 2006")) -}}
+  {{- end -}}
+{{- end -}}
+{{- $list | jsonify -}}

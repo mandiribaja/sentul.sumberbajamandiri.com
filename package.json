@@ -1,0 +1,27 @@
+{
+  "name": "sentul.sumberbajamandiri.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "hugo --minify && npm run compress-sitemap",
+    "start": "hugo server",
+    "dev": "hugo server -D",
+    "compress-sitemap": "node tools/compress-sitemap.js",
+    "recycle": "node tools/recycle-posts.js",
+    "build:recycle": "npm run recycle && npm run build",
+    "spintax": "node tools/process-spintax.js",
+    "dedup": "node tools/dedup-lapis1.js",
+    "revise": "node tools/revise-articles.js --dry-run --limit=3",
+    "find-orphans": "node tools/find-orphans.js",
+    "fix-orphans": "node tools/fix-orphans.js --dry-run --limit=3"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0",
+    "toml": "^3.0.0"
+  }
+}

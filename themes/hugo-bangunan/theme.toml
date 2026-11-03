@@ -1,0 +1,11 @@
+name = "Hugo Bangunan - Sumber Baja Mandiri Edition"
+license = "MIT"
+description = "Theme Hugo untuk toko/distributor besi dan baja. Turunan hugo-bangunan (K. Yaman, MIT), ditulis ulang tanpa Bootstrap/jQuery, warna biru & merah."
+homepage = "https://sumberbajamandiri.com"
+tags = ["blog", "responsive", "landing page", "product", "blue", "red"]
+features = ["responsive", "landing page", "product", "hub pages"]
+min_version = "0.120.0"
+
+[author]
+  name = "Sumber Baja Mandiri"
+  homepage = "https://sumberbajamandiri.com"

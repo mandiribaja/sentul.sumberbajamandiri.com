@@ -1,0 +1,19 @@
+{{ define "main" }}
+<main id="main">
+  <div class="container">
+    {{ partial "breadcrumb.html" . }}
+    <header class="page-header">
+      <h1 class="page-title">{{ .Title }} - {{ site.Params.name }}</h1>
+    </header>
+    <div class="gallery-grid">
+      {{ range .Params.gallery }}
+      <figure class="gallery-item">
+        <a href="{{ .imageURL }}"><img src="{{ .imageURL }}" alt="{{ .caption }}" loading="lazy" decoding="async"></a>
+        <figcaption>{{ .caption }}</figcaption>
+      </figure>
+      {{ end }}
+    </div>
+    {{ partial "cta.html" . }}
+  </div>
+</main>
+{{ end }}

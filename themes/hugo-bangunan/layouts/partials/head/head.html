@@ -1,0 +1,41 @@
+{{- /* Judul, deskripsi, canonical, Open Graph. */ -}}
+{{- $brand := site.Params.name -}}
+{{- $title := site.Title -}}
+{{- if not .IsHome -}}
+  {{- if .Params.meta_title -}}
+    {{- $title = .Params.meta_title -}}
+  {{- else if in (lower .Title) (lower $brand) -}}
+    {{- $title = .Title -}}
+  {{- else -}}
+    {{- $title = printf "%s | %s" .Title $brand -}}
+  {{- end -}}
+{{- end -}}
+{{- $desc := "" -}}
+{{- if .IsHome -}}
+  {{- $desc = or .Params.description site.Params.description -}}
+{{- else -}}
+  {{- $desc = or .Params.meta_description .Params.description -}}
+  {{- if not $desc }}{{ $desc = .Summary | plainify | htmlUnescape | truncate 155 }}{{ end -}}
+{{- end -}}
+{{- $img := "" -}}
+{{- if .IsPage -}}{{- $img = partialCached "first-image.html" . .RelPermalink -}}{{- end -}}
+{{- if not $img -}}{{- $img = site.Params.logo | default "images/logo-sbm.svg" -}}{{- end -}}
+{{- $fav := site.Params.favicon | default "favicon.ico" -}}
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $desc }}">
+<link rel="canonical" href="{{ .Permalink }}">
+{{ if .Params.noindex }}<meta name="robots" content="noindex,follow">{{ end }}
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:site_name" content="{{ $brand }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ $img | absURL }}">
+<meta property="og:locale" content="id_ID">
+<meta name="theme-color" content="#0202ee">
+<link rel="icon" href="{{ $fav | absURL }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alice&family=Open+Sans:wght@400;600;700&display=swap">
+{{ $css := resources.Get "css/styles.css" | resources.Minify | resources.Fingerprint "sha512" }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">

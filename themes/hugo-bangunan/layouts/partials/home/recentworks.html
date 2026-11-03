@@ -1,0 +1,26 @@
+{{- /*
+  Tipe "recentwork": menampilkan kartu gambar + nama.
+  Data: file JSON di folder section yang sama (nama file diatur di front matter `file`, default: *.json).
+  Format JSON yang diterima (dua-duanya boleh):
+    [ {"image": "/images/x.jpg", "name": "Nama"}, ... ]
+    [ {"items": [ {"image": "...", "name": "..."} ]} ]   <- format lama betoncorplus
+*/ -}}
+{{ with .Content }}<div class="lead text-center">{{ . }}</div>{{ end }}
+{{ $data := .Resources.GetMatch (.Params.file | default "*.json") }}
+{{ if $data }}
+  {{ $raw := $data | transform.Unmarshal }}
+  {{ $list := slice }}
+  {{ range $raw }}
+    {{ if .items }}{{ range .items }}{{ $list = $list | append . }}{{ end }}{{ else }}{{ $list = $list | append . }}{{ end }}
+  {{ end }}
+  <div class="work-grid">
+    {{ range $list }}
+    <div class="work-card">
+      <img src="{{ .image }}" alt="{{ .name }}" loading="lazy" decoding="async" width="180" height="180">
+      <h3>{{ .name }}</h3>
+    </div>
+    {{ end }}
+  </div>
+{{ else }}
+  <p class="muted text-center">File data (.json) belum ditemukan di folder section ini.</p>
+{{ end }}

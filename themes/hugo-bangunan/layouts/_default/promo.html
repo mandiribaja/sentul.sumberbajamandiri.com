@@ -1,0 +1,42 @@
+{{ define "main" }}
+<main id="main">
+  <div class="container">
+    {{ partial "breadcrumb.html" . }}
+    <div class="article-wrap">
+      <div class="post">
+        <h1 class="entry-title">Promo Spesial - {{ site.Params.name }}</h1>
+        {{ with .Content }}<div class="entry-content">{{ . }}</div>{{ end }}
+        {{ with site.Params.promoItems }}
+        <div class="table-wrap">
+          <table class="promo-table">
+            <thead><tr><th>Produk</th><th>Harga Normal</th><th>Harga Promo</th></tr></thead>
+            <tbody>
+              {{ range . }}<tr><td>{{ .name }}</td><td class="normal-price">{{ .normalPrice }}</td><td class="promo-price">{{ .promoPrice }}</td></tr>{{ end }}
+            </tbody>
+          </table>
+        </div>
+        {{ end }}
+        {{ with site.Params.promoEndDate }}
+        <h3 class="text-center">Promo Akan Berakhir Pada:</h3>
+        <div id="countdown" class="countdown" data-countdown="{{ . }}">Memuat...</div>
+        {{ end }}
+        {{ with site.Params.checkoutWa }}
+        <p class="text-center"><a class="btn btn-red" href="https://api.whatsapp.com/send?phone={{ . }}&text=*Nama*%20%3A%0A*Alamat*%20%3A%0A*No-Tlp*%20%3A%0A*Pesan-Promo?*%20%3A">Order Sekarang</a></p>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</main>
+{{ end }}
+
+{{ define "scripts" }}
+{{ if site.Params.promoEndDate }}
+<script>
+(function(){var el=document.getElementById('countdown');if(!el)return;var end=new Date(el.getAttribute('data-countdown'));
+function tick(){if(isNaN(end.getTime())){el.textContent='Tanggal tidak valid';return}
+var d=end-new Date();if(d<0){el.textContent='Promo Berakhir';return}
+var s=Math.floor(d/1000);el.textContent=Math.floor(s/86400)+' hari '+Math.floor(s%86400/3600)+' jam '+Math.floor(s%3600/60)+' menit '+(s%60)+' detik'}
+tick();setInterval(tick,1000)})();
+</script>
+{{ end }}
+{{ end }}

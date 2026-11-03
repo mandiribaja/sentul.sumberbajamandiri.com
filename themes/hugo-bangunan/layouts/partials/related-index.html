@@ -1,0 +1,16 @@
+{{- /*
+  Indeks sekali per build: mengelompokkan halaman berdasarkan "produk" dan "lokasi" dari pola judul
+  "<Produk> di <Lokasi>". Hasilnya dipakai related_posts.html agar tiap halaman otomatis menaut ke
+  halaman produk yang sama di lokasi lain dan produk lain di lokasi yang sama (deterministik, tanpa shuffle).
+*/ -}}
+{{- $s := newScratch -}}
+{{- range site.RegularPages.ByTitle -}}
+  {{- $t := lower .Title -}}
+  {{- $parts := split $t " di " -}}
+  {{- $fam := index $parts 0 -}}
+  {{- $s.Add (printf "f:%s" $fam) (slice .) -}}
+  {{- if gt (len $parts) 1 -}}
+    {{- $s.Add (printf "l:%s" (delimit (after 1 $parts) " di ")) (slice .) -}}
+  {{- end -}}
+{{- end -}}
+{{- return $s -}}

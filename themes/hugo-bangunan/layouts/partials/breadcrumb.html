@@ -1,0 +1,7 @@
+{{ if not .IsHome }}
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="{{ "/" | relURL }}">Beranda</a>
+  {{ if and .IsPage .Parent (not .Parent.IsHome) }}<span aria-hidden="true">›</span> <a href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a>{{ end }}
+  <span aria-hidden="true">›</span> <span class="current">{{ .Title }}</span>
+</nav>
+{{ end }}

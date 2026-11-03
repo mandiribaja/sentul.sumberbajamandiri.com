@@ -1,0 +1,18 @@
+{{- /* "Artikel Terkait": tetangga di section yang sama (deterministik, tanpa shuffle agar HTML tidak berubah di setiap build). */ -}}
+{{- $out := slice -}}
+{{- with .PrevInSection }}{{ $out = $out | append . }}{{ end -}}
+{{- with .NextInSection }}{{ $out = $out | append . }}{{ end -}}
+{{- if lt (len $out) 2 -}}
+  {{- $cur := . -}}
+  {{- range first 3 (where (where site.RegularPages "Section" .Section) "Permalink" "ne" .Permalink) -}}
+    {{- if lt (len $out) 2 }}{{ $out = $out | append . }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+{{- if $out }}
+<div class="related-posts">
+  <h2>Artikel Terkait</h2>
+  <div class="post-grid post-grid-2">
+    {{ range first 2 $out }}{{ partial "post-card.html" (dict "page" . "label" "Baca Selengkapnya") }}{{ end }}
+  </div>
+</div>
+{{- end -}}

@@ -1,0 +1,44 @@
+{{ define "main" }}
+<main id="main">
+  <div class="container">
+    {{ if site.Params.showSubheader }}{{ partial "home/subheader.html" . }}{{ end }}
+
+    {{ range site.Sections }}
+      {{ range .Sections.ByWeight }}
+        {{ $stype := .Type }}
+        {{ if or (and (eq $stype "service") site.Params.showServices) (and (eq $stype "recentwork") site.Params.showRecentWorks) (eq $stype "single") }}
+        <section class="home-section">
+          <h2 class="section-title"><span>{{ .Title }}</span></h2>
+          {{ if eq $stype "recentwork" }}{{ partial "home/recentworks.html" . }}
+          {{ else if eq $stype "single" }}{{ partial "home/single.html" . }}{{ end }}
+        </section>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+
+    {{ with site.GetPage "/gallery" }}
+    <div class="text-center home-btn"><a href="{{ .RelPermalink }}" class="btn btn-primary">Lihat Galeri Proyek</a></div>
+    {{ end }}
+
+    {{ with site.Params.testimonials }}
+    <section class="home-section">
+      <h2 class="section-title"><span>Apa Kata Klien Kami</span></h2>
+      <div class="testimonial-slider">
+        {{ range . }}
+        <div class="whatsapp-chat">
+          <div class="chat-header">
+            {{ with .avatar }}<img src="{{ . }}" alt="{{ $.Site.Params.name }}" class="avatar" loading="lazy" width="36" height="36">{{ end }}
+            <div class="chat-info"><h3>{{ .name }}</h3><p>{{ .status | default "Online" }}</p></div>
+          </div>
+          <div class="chat-body">
+            <div class="message"><p>{{ .message }}</p></div>
+            {{ with .response }}<div class="respond"><p>{{ . }}</p></div>{{ end }}
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </section>
+    {{ end }}
+  </div>
+</main>
+{{ end }}

@@ -1,0 +1,17 @@
+{{ define "main" }}
+<main id="main">
+  <div class="container">
+    {{ partial "breadcrumb.html" . }}
+    <header class="page-header">
+      <h1 class="page-title">{{ .Title }}</h1>
+      {{ with .Content }}<div class="lead">{{ . }}</div>{{ end }}
+    </header>
+    <div class="post-grid">
+      {{ range .Paginator.Pages }}{{ partial "post-card.html" (dict "page" . "label" "Selengkapnya") }}{{ end }}
+    </div>
+    <nav class="pagination-wrap" aria-label="Halaman">
+      {{ template "_internal/pagination.html" . }}
+    </nav>
+  </div>
+</main>
+{{ end }}

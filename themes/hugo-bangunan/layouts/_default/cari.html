@@ -1,0 +1,172 @@
+{{ define "main" }}
+{{- $c := partialCached "contact.html" "x" -}}
+<main id="main">
+  <div class="container">
+    {{ partial "breadcrumb.html" . }}
+    <header class="page-header">
+      <h1 class="page-title">Cari Berdasarkan Wilayah</h1>
+    </header>
+
+    <form class="cari-form" action="{{ .RelPermalink }}" method="get" role="search">
+      <input id="cari-q" type="search" name="q" placeholder="Cari wilayah, mis. Cibinong, Ciawi, Dramaga" aria-label="Nama wilayah" autocomplete="off">
+      <button type="submit" class="btn btn-primary">Cari</button>
+    </form>
+    <p id="cari-status" class="list-count" aria-live="polite"></p>
+
+    <div id="cari-app" data-index="{{ "index.json" | relURL }}" data-wa="{{ $c.wa }}" data-tel="{{ $c.tel }}" data-img="{{ site.Params.defaultImage | default "/images/placeholder.svg" }}">
+      <div id="cari-results" class="post-grid"></div>
+      <div id="cari-empty" class="cari-empty" hidden>
+        <h2>Belum ada halaman untuk wilayah “<span id="cari-empty-q"></span>”</h2>
+        <p>Tanyakan langsung ketersediaan dan harga lewat WhatsApp atau telepon, atau pilih wilayah lain di bawah.</p>
+        <div class="cta-actions">
+          <a id="cari-wa" class="btn btn-wa" href="#" rel="noopener" hidden>Tanya via WhatsApp</a>
+          <a id="cari-tel" class="btn btn-red" href="#" hidden>Telepon</a>
+        </div>
+      </div>
+      <p class="text-center"><button type="button" id="cari-more" class="btn btn-primary" hidden>Tampilkan lebih banyak</button></p>
+    </div>
+
+    {{ range site.Menus.main }}{{ if .HasChildren }}
+    <section class="cari-suggest" aria-label="{{ .Name }} populer">
+      <h3>{{ .Name }} populer</h3>
+      <div class="chips">
+        {{ range .Children }}<a class="chip" href="{{ (.Params.href | default .URL) | safeURL }}">{{ .Name }}</a>{{ end }}
+      </div>
+    </section>
+    {{ end }}{{ end }}
+
+    <section class="cari-suggest" id="cari-wilayah" aria-label="Semua wilayah" hidden>
+      <h3>Semua wilayah (<span id="cari-wilayah-n">0</span>)</h3>
+      <div class="chips" id="cari-wilayah-list"></div>
+    </section>
+  </div>
+</main>
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+(function () {
+  var app = document.getElementById('cari-app');
+  if (!app) return;
+  var params = new URLSearchParams(window.location.search);
+  var qRaw = (params.get('q') || '').trim();
+  var sec = (params.get('s') || '').trim().toLowerCase();
+  var PAGE = 24;
+  var elQ = document.getElementById('cari-q');
+  var elStatus = document.getElementById('cari-status');
+  var elList = document.getElementById('cari-results');
+  var elEmpty = document.getElementById('cari-empty');
+  var elEmptyQ = document.getElementById('cari-empty-q');
+  var elMore = document.getElementById('cari-more');
+  var elWa = document.getElementById('cari-wa');
+  var elTel = document.getElementById('cari-tel');
+  var elWil = document.getElementById('cari-wilayah');
+  var elWilList = document.getElementById('cari-wilayah-list');
+  var elWilN = document.getElementById('cari-wilayah-n');
+  elQ.value = qRaw;
+
+  function norm(s) { return (s || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim(); }
+
+  // Sintaks: "a b|c" = (a DAN b) ATAU c
+  var groups = qRaw.split('|').map(norm).filter(Boolean).map(function (g) { return g.split(' '); });
+  var label = groups.length ? groups[0].join(' ') : sec;
+  var browsing = !groups.length && !sec;
+
+  // Tombol WhatsApp / telepon untuk kondisi "tidak ada hasil"
+  var text = 'Halo Sumber Baja Mandiri Sentul, saya ingin menanyakan harga dan stok besi di wilayah ' + label;
+  if (app.dataset.wa) {
+    var u = app.dataset.wa;
+    u = /[?&]text=/.test(u) ? u.replace(/text=[^&]*/, 'text=' + encodeURIComponent(text)) : u + (u.indexOf('?') > -1 ? '&' : '?') + 'text=' + encodeURIComponent(text);
+    elWa.href = u; elWa.hidden = false;
+  }
+  if (app.dataset.tel) { elTel.href = app.dataset.tel; elTel.hidden = false; }
+
+  // Daftar semua wilayah, diambil dari judul "... di <Wilayah> Bogor"
+  function wilayah(data) {
+    var seen = {}, names = [];
+    data.forEach(function (it) {
+      var m = /\bdi\s+(.+?)\s*$/i.exec(it.t || '');
+      if (!m) return;
+      // Normalisasi: "Desa Sentul Kecamatan Babakan Madang" -> "Sentul"; "Kawasan Sentul" -> "Sentul"
+      var name = m[1].replace(/\s+kecamatan\s+.+$/i, '').replace(/^(desa|kelurahan|kecamatan|kawasan)\s+/i, '').replace(/\s+bogor$/i, '').trim();
+      var key = name.toLowerCase();
+      if (!name) return;
+      if (name && !seen[key]) { seen[key] = 1; names.push(name); }
+    });
+    names.sort(function (a, b) { return a.localeCompare(b, 'id'); });
+    names.forEach(function (n) {
+      var a = document.createElement('a');
+      a.className = 'chip'; a.textContent = n;
+      a.href = '?q=' + encodeURIComponent(n.toLowerCase());
+      elWilList.appendChild(a);
+    });
+    elWilN.textContent = names.length;
+    elWil.hidden = !names.length;
+  }
+
+  function card(it) {
+    var a = document.createElement('article'); a.className = 'post-card';
+    var la = document.createElement('a'); la.className = 'post-card-img'; la.href = it.u; la.tabIndex = -1; la.setAttribute('aria-hidden', 'true');
+    var img = document.createElement('img'); img.src = it.i || app.dataset.img; img.alt = it.t; img.loading = 'lazy'; img.decoding = 'async';
+    la.appendChild(img);
+    var b = document.createElement('div'); b.className = 'post-card-body';
+    var t = document.createElement('time'); t.className = 'post-card-date'; t.textContent = it.dt || '';
+    var h = document.createElement('h3'); h.className = 'post-card-title';
+    var ha = document.createElement('a'); ha.href = it.u; ha.textContent = it.t; h.appendChild(ha);
+    var p = document.createElement('p'); p.className = 'post-card-excerpt'; p.textContent = it.d || '';
+    var btn = document.createElement('a'); btn.className = 'post-card-btn'; btn.href = it.u; btn.textContent = 'Selengkapnya';
+    b.appendChild(t); b.appendChild(h); b.appendChild(p); b.appendChild(btn);
+    a.appendChild(la); a.appendChild(b);
+    return a;
+  }
+
+  function render(res) {
+    var shown = 0;
+    function more() {
+      res.slice(shown, shown + PAGE).forEach(function (r) { elList.appendChild(card(r.it)); });
+      shown = Math.min(res.length, shown + PAGE);
+      elMore.hidden = shown >= res.length;
+    }
+    if (!res.length) {
+      elStatus.textContent = 'Tidak ada hasil.';
+      elEmptyQ.textContent = qRaw ? qRaw.split('|').map(norm).filter(Boolean).join(' / ') : sec;
+      elEmpty.hidden = false;
+      return;
+    }
+    elStatus.textContent = res.length + ' halaman ditemukan.';
+    elMore.addEventListener('click', more);
+    more();
+  }
+
+  elStatus.textContent = browsing ? 'Pilih wilayah di bawah, atau ketik nama wilayah.' : 'Mencari…';
+
+  fetch(app.dataset.index).then(function (r) { return r.json(); }).then(function (data) {
+    var res = [];
+    if (!browsing) {
+      data.forEach(function (it) {
+        if (sec && (it.s || '').toLowerCase() !== sec) return;
+        var T = ' ' + norm(it.t) + ' ', K = ' ' + norm(it.k) + ' ', D = ' ' + norm(it.d) + ' ';
+        var best = groups.length ? 0 : 1;
+        groups.forEach(function (g) {
+          var s = 0, ok = true;
+          g.forEach(function (w) {
+            var x = ' ' + w;
+            if (T.indexOf(x) > -1) s += 3; else if (K.indexOf(x) > -1) s += 2; else if (D.indexOf(x) > -1) s += 1; else ok = false;
+          });
+          if (ok && s > best) best = s;
+        });
+        if (best > 0) res.push({ it: it, s: best });
+      });
+      res.sort(function (a, b) { return b.s - a.s || (a.it.t < b.it.t ? -1 : 1); });
+      // Jika ada artikel yang JUDULNYA cocok, sembunyikan yang hanya cocok di deskripsi (mis. menyebut wilayah tetangga)
+      if (res.some(function (r) { return r.s >= 3; })) res = res.filter(function (r) { return r.s >= 3; });
+      render(res);
+    }
+    // Daftar wilayah ditampilkan saat menjelajah atau saat tidak ada hasil
+    if (browsing || !res.length) wilayah(data);
+  }).catch(function () {
+    elStatus.textContent = 'Pencarian tidak dapat dimuat. Coba muat ulang halaman.';
+  });
+})();
+</script>
+{{ end }}

@@ -1,0 +1,32 @@
+<footer id="footer">
+  <div class="container footer-grid">
+    {{ if site.Params.showFooterTextWidget }}
+    <div class="widget">
+      <h3 class="widget-title">{{ i18n "footer_text_title" }}</h3>
+      <p>{{ i18n "footer_text1" . | markdownify }}</p>
+    </div>
+    <div class="widget">
+      <h3 class="widget-title">{{ i18n "footer_unggul_title" }}</h3>
+      <p>{{ i18n "footer_unggul1" . | markdownify }}</p>
+    </div>
+    {{ end }}
+    {{ if site.Params.showFooterContact }}
+    <div class="widget">
+      <h3 class="widget-title">{{ i18n "footer_contact_title" }}</h3>
+      <p>
+        {{ with site.Params.phone }}Tlp: <a href="{{ (partialCached "contact.html" "x").tel | default (printf "tel:%s" (replaceRE `[^0-9+]` "" .)) | safeURL }}">{{ . }}</a><br>{{ end }}
+        {{ with site.Params.email }}Email: <a href="mailto:{{ . }}">{{ . }}</a><br>{{ end }}
+        {{ with site.Params.address }}<br>Alamat: {{ . }}{{ end }}
+      </p>
+    </div>
+    {{ end }}
+  </div>
+</footer>
+<div id="underfooter">
+  <div class="container">
+    <p>
+      {{ if site.Copyright }}Copyright &copy; {{ site.Copyright }}{{ else }}Copyright &copy; {{ site.Params.year }}, {{ site.Params.name }}{{ end }}<br>
+      Design Theme by: <a href="https://sumbermaterial.com" rel="designer">SM</a>{{ with site.Params.poweredBy }} - Powered by: {{ . | safeHTML }}{{ end }}
+    </p>
+  </div>
+</div>

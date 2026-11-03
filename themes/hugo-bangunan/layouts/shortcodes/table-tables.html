@@ -1,0 +1,27 @@
+{{- /* Dipakai tools (generate/revise-articles): {{< table-tables table="table1|table2|table3" >}}. Data dari hugo.toml [params]. */ -}}
+{{ with .Get "table" }}
+  {{ if eq . "table1" }}
+  <div class="table-wrap"><table class="table">
+    <thead><tr><th>Produk</th><th>Harga (Rp)</th><th>Aplikasi Utama</th></tr></thead>
+    <tbody>
+      {{ range $.Site.Params.tabelItems }}<tr><td>{{ .name }}</td><td>{{ .price }}</td><td>{{ index $.Site.Params.appliList .name }}</td></tr>{{ end }}
+    </tbody>
+  </table></div>
+  {{ else if eq . "table2" }}
+  <div class="table-wrap"><table class="table">
+    <thead><tr><th>Produk</th><th>Harga (Rp)</th><th>Kegunaan Utama</th></tr></thead>
+    <tbody>
+      {{ range $.Site.Params.tabelItems }}<tr><td>{{ .name }}</td><td>{{ .price }}</td><td>{{ index $.Site.Params.kegunaanList .name }}</td></tr>{{ end }}
+    </tbody>
+  </table></div>
+  {{ else if eq . "table3" }}
+  <div class="table-wrap"><table class="table">
+    <thead><tr><th>Jenis Layanan</th><th>Biaya (Rp)</th></tr></thead>
+    <tbody>
+      {{ range $.Site.Params.pumpItems }}<tr><td>{{ .type }}</td><td>{{ .price }}</td></tr>{{ end }}
+    </tbody>
+  </table></div>
+  {{ else }}
+  <p>Invalid table selection.</p>
+  {{ end }}
+{{ end }}

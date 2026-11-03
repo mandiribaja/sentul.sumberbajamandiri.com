@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="{{ site.LanguageCode | default "id" }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{ partial "head/head.html" . }}
+</head>
+<body class="{{ if .IsHome }}home{{ else }}inner{{ end }}">
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+  {{ partial "head/header.html" . }}
+  {{ block "main" . }}{{ end }}
+  {{ partial "footer/footer.html" . }}
+  {{ if or site.Params.whatsapp site.Params.telepon }}{{ partial "footer/salam-chat.html" . }}{{ end }}
+  {{ partial "footer/scripts.html" . }}
+  {{ block "scripts" . }}{{ end }}
+</body>
+</html>

@@ -1,0 +1,45 @@
+{{ define "main" }}
+<main id="main">
+  <div class="container">
+    {{ partial "breadcrumb.html" . }}
+    <div class="article-wrap">
+      <div class="post">
+        <h1 class="entry-title">Profil</h1>
+        <div class="profile-top">
+          {{ with site.Params.profileImage }}<img src="{{ . }}" alt="{{ $.Site.Params.name }}" class="circle profile-img">{{ end }}
+          <div>
+            <h2>Tentang Kami</h2>
+            <p>{{ site.Params.bio }}</p>
+            <ul class="profile-list">
+              {{ with site.Params.nameuser }}<li><strong>Nama:</strong> {{ . }}</li>{{ end }}
+              {{ with site.Params.jobuser }}<li><strong>Jabatan:</strong> {{ . }}</li>{{ end }}
+              {{ with site.Params.phoneuser }}<li><strong>Telepon:</strong> {{ . }}</li>{{ end }}
+              {{ with site.Params.emailuser }}<li><strong>Email:</strong> {{ . }}</li>{{ end }}
+              {{ with site.Params.addressuser }}<li><strong>Alamat:</strong> {{ . }}</li>{{ end }}
+              {{ with site.Params.website }}<li><strong>Website:</strong> <a href="{{ . }}">{{ . }}</a></li>{{ end }}
+            </ul>
+          </div>
+        </div>
+
+        {{ with site.Params.skills }}
+        <h2>Keahlian</h2>
+        {{ range . }}<div class="skill-item"><strong>{{ .name }}</strong><div class="progress"><div class="progress-bar" style="width: {{ .level }}%">{{ .level }}%</div></div></div>{{ end }}
+        {{ end }}
+
+        {{ with site.Params.projects }}
+        <h2>Beberapa Proyek Kami</h2>
+        {{ range . }}<div class="project-item"><h3>{{ .name }}</h3><p class="muted">{{ .location }} | {{ .year }}</p><p>{{ .description }}</p></div>{{ end }}
+        {{ end }}
+
+        {{ with site.Params.services }}{{ with .items }}
+        <h2>Layanan {{ site.Params.name }}</h2>
+        <ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+        {{ end }}{{ end }}
+
+        {{ with .Content }}<div class="entry-content">{{ . }}</div>{{ end }}
+        {{ partial "cta.html" . }}
+      </div>
+    </div>
+  </div>
+</main>
+{{ end }}

@@ -1,0 +1,21 @@
+{{- $avatar := site.Params.avatar | default "images/logo-sbm.svg" -}}
+<header id="header">
+  <div id="head"{{ with site.Params.banner }} class="has-banner" style="background-image:linear-gradient(rgba(0,0,90,.72),rgba(2,2,238,.5)),url('{{ . | absURL }}')"{{ end }}>
+    <div class="container head-inner">
+      <a class="head-logo" href="{{ "/" | relURL }}" aria-label="{{ site.Params.name }}">
+        <img class="{{ site.Params.avatarclass | default "circle" }}" src="{{ $avatar | absURL }}" alt="{{ site.Params.name }}" width="140" height="140">
+      </a>
+      <div class="head-text">
+        {{ if .IsHome }}<h1 class="title">{{ site.Params.name }}</h1>{{ else }}<p class="title"><a href="{{ "/" | relURL }}">{{ site.Params.name }}</a></p>{{ end }}
+        <p class="tagline">{{ site.Params.description }}</p>
+        {{ if or site.Params.email site.Params.phone }}
+        <p class="head-contact">
+          {{ with site.Params.email }}<a href="mailto:{{ . }}">Email: {{ . }}</a>{{ end }}
+          {{ with site.Params.phone }}<a href="{{ (partialCached "contact.html" "x").tel | default (printf "tel:%s" (replaceRE `[^0-9+]` "" .)) | safeURL }}">Telp/WA: {{ . }}</a>{{ end }}
+        </p>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+  {{ partial "head/menu.html" . }}
+</header>

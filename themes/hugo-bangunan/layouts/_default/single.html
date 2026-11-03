@@ -1,0 +1,28 @@
+{{ define "main" }}
+<main id="main">
+  <div class="container">
+    {{ partial "breadcrumb.html" . }}
+    <div class="article-wrap">
+      <article class="post">
+        <header class="entry-header">
+          <div class="entry-meta">
+            <time class="entry-date published" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
+            {{/* tools/recycle-posts.js, revise-articles.js dan fix-orphans.js menjaga `date` sebagai tanggal terbit asli dan hanya mengubah `lastmod`. */}}
+            {{ if and (not .Lastmod.IsZero) (ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02")) }}
+            <span class="updated-on">&middot; <time class="entry-date updated" datetime="{{ .Lastmod.Format "2006-01-02" }}">Diperbarui {{ .Lastmod.Format "2 January 2006" }}</time></span>
+            {{ end }}
+          </div>
+          <h1 class="entry-title">{{ .Title }}</h1>
+        </header>
+        {{ if and .Params.toc (gt .WordCount (site.Params.tocMinWordCount | default 500)) }}
+          {{ with .TableOfContents }}{{ if ne . "" }}<details class="toc" open><summary>{{ i18n "tableOfContents" }}</summary>{{ . }}</details>{{ end }}{{ end }}
+        {{ end }}
+        <div class="entry-content">{{ .Content }}</div>
+        {{ partial "cta.html" . }}
+        {{ if site.Params.enableNextPrevPages }}{{ partial "footer/article-prevnext.html" . }}{{ end }}
+        <div class="related-posts-container">{{ partial "related_posts.html" . }}</div>
+      </article>
+    </div>
+  </div>
+</main>
+{{ end }}

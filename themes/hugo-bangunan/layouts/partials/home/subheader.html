@@ -1,0 +1,6 @@
+{{ range where site.Pages "Type" "subheader" }}
+<section class="home-lead">
+  <div class="lead">{{ .Content }}</div>
+  <p><a href="/promo/" class="btn btn-red">Cek Harga</a></p>
+</section>
+{{ end }}
