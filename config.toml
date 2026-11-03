@@ -1,0 +1,424 @@
+# =====================================================================
+# Sumber Baja Mandiri — SENTUL (Kabupaten Bogor)
+# =====================================================================
+# Domain: pastikan benar (nama folder project tertulis "sumberbajamanidri" - kemungkinan typo).
+baseURL = "https://sentul.sumberbajamandiri.com"
+languageCode = "id"
+defaultContentLanguage = "id"
+title = "Sumber Baja Mandiri Sentul | Besi dan Baja di Sentul, Babakan Madang, Sukaraja, dan Citeureup"
+theme = "hugo-bangunan"
+summaryLength = "35"
+paginate = "12"
+
+# Folder content/<folder>/ sudah menjadi section sendiri, jadi halaman /tags/ dan /categories/
+# otomatis tidak diperlukan. Hapus baris ini jika ingin mengaktifkannya.
+disableKinds = ["taxonomy", "term"]
+
+# Hugo >= 0.128 memakai [pagination]; `paginate` di atas untuk Hugo lama.
+[pagination]
+  pagerSize = 12
+
+# Beranda juga menghasilkan /index.json (indeks untuk halaman pencarian /cari/). RSS beranda dimatikan
+# karena akan memuat ratusan artikel.
+[outputs]
+  home = ["HTML", "JSON"]
+
+[params]
+    name = "Sumber Baja Mandiri Sentul"
+    description = "Besi dan Baja untuk Proyek Konstruksi di Sentul dan Sekitarnya, Kabupaten Bogor"
+
+    # ---- Kontak Sentul: lengkapi dengan nomor dan alamat resmi sebelum deploy ----
+    email = "sumberbajamandiribogor@gmail.com"   # email pusat; ganti jika Sentul punya email sendiri
+    phone = "0821-2549-8008"
+    telepon = "//+6282125498008"
+    whatsapp = "//api.whatsapp.com/send?phone=6282125498008&text=Halo%20Sumber%20Baja%20Mandiri%20Sentul"
+    address = "Dekat Lula Kost, Jl. Pahlawan, RT.4/RW.6, Leuwinutug, Kec. Citeureup, Kabupaten Bogor, Jawa Barat 16810"
+    year = 2026
+    DateForm = "2 January 2006"
+    author = "Sentul"
+
+    # ---- Gambar (path tanpa awalan "/", relatif terhadap folder static) ----
+    avatar = "/images/logo-sbm-512x512-a.png"
+    avatarclass = "circle"
+    background = "/images/sumberbajamandiri-bg.png"
+    banner = "images/sumberbajamandiri-bg.png"   # gambar header (kosong = header gradasi biru)
+    favicon = "images/favicon.ico"
+    logo = "images/sbm-logo.png"
+    logoclass = "icon float-left"
+    defaultImage = "/images/logo-sbm-512x512-a.png"   # gambar kartu bila artikel tidak punya gambar
+
+    # ---- Fitur ----
+    tocMinWordCount = 500
+    showSubheader = true
+    showRecentWorks = true
+    enableNextPrevPages = true
+
+    showFooterContact = true
+    showFooterTextWidget = true
+    enableWhatApps = true
+    enableTelepon = true
+
+    # Footer. Teks footer ada di folder i18n/ (root project).
+    poweredBy = '<a href="https://sumberbajamandiri.com" rel="poweredby">Sumber Baja Mandiri</a>'
+
+    # ---- Halaman Promo (/promo/) ----
+    checkoutWa = "6282125498008"
+    # promoEndDate = "2026-12-31T23:59:59"
+
+    # ---- Halaman Profile (/profile/) ----
+    # Bagian yang kosong otomatis tidak ditampilkan.
+    nameuser = "Sumber Baja Mandiri Sentul"
+    jobuser = "Penyedia Besi dan Baja untuk Wilayah Sentul dan Sekitarnya"
+    phoneuser = "0821-2549-8008"
+    emailuser = "sumberbajamandiribogor@gmail.com"
+    addressuser = "Dekat Lula Kost, Jl. Pahlawan, RT.4/RW.6, Leuwinutug, Kec. Citeureup, Kabupaten Bogor, Jawa Barat 16810"
+    website = "https://sentul.sumberbajamandiri.com"
+    profileImage = "/images/logo-sbm-512x512-a.png"
+    bio = "Sumber Baja Mandiri Sentul melayani kebutuhan besi dan baja untuk proyek konstruksi dan renovasi di Sentul, Babakan Madang, Sukaraja, Citeureup, Cibinong, dan sekitarnya di Kabupaten Bogor. Tersedia informasi besi beton polos dan ulir, wiremesh, hollow, bondek, pipa, besi siku, serta baja profil. Hubungi kami untuk menanyakan harga dan ketersediaan stok."
+
+  # CATATAN INTERNAL: data proyek ini merupakan draf rekaan dan harus diverifikasi sebelum dipublikasikan.
+  [[params.projects]]
+    name = "Pengadaan Besi Beton untuk Pembangunan Rumah Tinggal"
+    location = "Sentul, Kabupaten Bogor"
+    year = "2025"
+    description = "Penyediaan besi beton polos dan ulir untuk kebutuhan pembangunan rumah tinggal di kawasan Sentul."
+
+  [[params.projects]]
+    name = "Suplai Wiremesh untuk Pekerjaan Pelat Lantai"
+    location = "Babakan Madang, Kabupaten Bogor"
+    year = "2025"
+    description = "Penyediaan wiremesh untuk kebutuhan tulangan pelat lantai pada pekerjaan konstruksi di wilayah Babakan Madang."
+
+  [[params.projects]]
+    name = "Pengadaan Material Baja untuk Kanopi dan Rangka Bangunan"
+    location = "Citeureup, Kabupaten Bogor"
+    year = "2026"
+    description = "Penyediaan hollow, besi siku, dan material baja pendukung untuk kebutuhan rangka kanopi dan bangunan di wilayah Citeureup."
+
+  [params.services]
+    items = [
+      "Informasi dan pemesanan besi beton polos dan ulir, wiremesh, hollow, bondek, pipa, besi siku, dan baja profil",
+      "Melayani kebutuhan proyek di Sentul, Babakan Madang, Sukaraja, Citeureup, dan Cibinong",
+      "Informasi harga dan ketersediaan stok lewat telepon dan WhatsApp"
+    ]
+
+# ---- Testimoni draf untuk cabang Sentul ----
+# CATATAN INTERNAL: nama dan isi berikut merupakan materi draf, bukan ulasan pelanggan terverifikasi.
+# Ganti dengan ulasan asli dan izin publikasi sebelum ditampilkan sebagai testimoni pelanggan.
+[[params.testimonials]]
+  name = "Andika Pratama"
+  avatar = "https://fakedetail.com/assets/images/profile.jpg"
+  status = "Online"
+  message = "Saya sedang mencari besi beton untuk pembangunan rumah di kawasan Sentul. Informasi ukuran dan pilihan material membantu saya menyusun kebutuhan sebelum melakukan pembelian."
+  response = "Terima kasih telah menghubungi Sumber Baja Mandiri Sentul. Silakan tanyakan harga dan ketersediaan besi beton melalui tim kami."
+
+[[params.testimonials]]
+  name = "Rina Oktaviani"
+  avatar = "https://fakedetail.com/assets/images/profile.jpg"
+  status = "Online"
+  message = "Untuk pekerjaan renovasi, saya membutuhkan beberapa jenis material besi. Informasi produk seperti hollow, besi siku, dan pipa membantu saya menentukan material yang sesuai."
+  response = "Terima kasih atas ketertarikan Anda. Tim Sentul siap membantu memberikan informasi produk dan stok yang tersedia."
+
+[[params.testimonials]]
+  name = "Feri Setiawan"
+  avatar = "https://fakedetail.com/assets/images/profile.jpg"
+  status = "Online"
+  message = "Saya membutuhkan wiremesh untuk pekerjaan pelat lantai di Babakan Madang. Informasi ukuran dan ketersediaan barang menjadi hal penting sebelum menentukan pesanan."
+  response = "Terima kasih telah menghubungi cabang Sentul. Silakan konfirmasi ukuran dan stok wiremesh kepada tim kami."
+
+[[params.testimonials]]
+  name = "Nadia Puspitasari"
+  avatar = "https://fakedetail.com/assets/images/profile.jpg"
+  status = "Online"
+  message = "Sedang menyiapkan kebutuhan material untuk kanopi di sekitar Citeureup. Saya mencari informasi hollow dan besi siku agar bisa menyesuaikan pilihan dengan kebutuhan rangka."
+  response = "Terima kasih. Kami siap membantu menjelaskan pilihan hollow, besi siku, dan material baja lainnya."
+
+[[params.testimonials]]
+  name = "Yusuf Maulana"
+  avatar = "https://fakedetail.com/assets/images/profile.jpg"
+  status = "Online"
+  message = "Saya mencari material baja untuk pekerjaan bangunan di Cibinong. Adanya informasi produk dan kontak cabang memudahkan saya menanyakan stok sebelum berkunjung."
+  response = "Terima kasih telah menghubungi Sumber Baja Mandiri Sentul. Hubungi kami terlebih dahulu untuk memastikan ketersediaan material."
+
+[[params.testimonials]]
+  name = "Tika Amelia"
+  avatar = "https://fakedetail.com/assets/images/profile.jpg"
+  status = "Online"
+  message = "Untuk kebutuhan konstruksi, saya perlu membandingkan besi beton, bondek, dan wiremesh. Penjelasan fungsi masing-masing material membantu proses perencanaan pembelian."
+  response = "Terima kasih atas masukannya. Tim kami siap membantu memberikan informasi material untuk kebutuhan konstruksi Anda."
+
+# ---- Tabel promo (halaman /promo/) ----
+# PERHATIAN: harga di bawah disalin dari toko pusat. Samakan dengan harga yang berlaku untuk Sentul.
+[[params.promoItems]]
+  name = "Besi 12 full"
+  normalPrice = "Rp116.500"
+  promoPrice = "Rp111.500"
+[[params.promoItems]]
+  name = "Besi 10 full"
+  normalPrice = "Rp84.000"
+  promoPrice = "Rp79.000"
+[[params.promoItems]]
+  name = "Besi 8 full"
+  normalPrice = "Rp55.500"
+  promoPrice = "Rp50.500"
+[[params.promoItems]]
+  name = "Besi 6 full"
+  normalPrice = "Rp36.000"
+  promoPrice = "Rp31.000"
+[[params.promoItems]]
+  name = "Besi 6"
+  normalPrice = "Rp37.000"
+  promoPrice = "Rp32.000"
+[[params.promoItems]]
+  name = "Besi 8"
+  normalPrice = "Rp47.000"
+  promoPrice = "Rp42.000"
+[[params.promoItems]]
+  name = "Besi 10"
+  normalPrice = "Rp67.000"
+  promoPrice = "Rp62.000"
+[[params.promoItems]]
+  name = "Besi 12"
+  normalPrice = "Rp99.000"
+  promoPrice = "Rp94.000"
+[[params.promoItems]]
+  name = "Besi 13"
+  normalPrice = "Rp110.000"
+  promoPrice = "Rp105.000"
+[[params.promoItems]]
+  name = "Besi 16"
+  normalPrice = "Rp162.500"
+  promoPrice = "Rp157.500"
+[[params.promoItems]]
+  name = "Wiremesh M8"
+  normalPrice = "Rp485.000"
+  promoPrice = "Rp480.000"
+[[params.promoItems]]
+  name = "Wiremesh M10"
+  normalPrice = "Rp770.000"
+  promoPrice = "Rp765.000"
+
+# ---- Menu ----
+# "Wilayah" memakai URL pencarian (/cari/?q=<wilayah>). Daftar lengkap semua wilayah tampil otomatis di
+# halaman /cari/ (diambil dari judul artikel). Hugo membuang "?" dan "=" dari `url` menu, jadi URL pencarian
+# ditulis di params.href (theme memakainya bila ada); `url = "/cari/"` hanya cadangan.
+# Sintaks q: "a b|c" = (a DAN b) ATAU c. "|" ditulis %7C, spasi ditulis +.
+# Jual / Toko mengarah ke folder konten /jual/ dan /toko/.
+[[menu.main]]
+    name = "home"
+    url = "/"
+    weight = 1
+
+[[menu.main]]
+    name = "Wilayah"
+    url = "/cari/"
+    identifier = "wilayah"
+    weight = 2
+
+[[menu.main]]
+    name = "Sentul"
+    url = "/cari/"
+    parent = "wilayah"
+    weight = 1
+    [menu.main.params]
+      href = "/cari/?q=sentul"
+
+[[menu.main]]
+    name = "Babakan Madang"
+    url = "/cari/"
+    parent = "wilayah"
+    weight = 2
+    [menu.main.params]
+      href = "/cari/?q=babakan+madang"
+
+[[menu.main]]
+    name = "Sukaraja"
+    url = "/cari/"
+    parent = "wilayah"
+    weight = 3
+    [menu.main.params]
+      href = "/cari/?q=sukaraja"
+
+[[menu.main]]
+    name = "Citeureup"
+    url = "/cari/"
+    parent = "wilayah"
+    weight = 4
+    [menu.main.params]
+      href = "/cari/?q=citeureup"
+
+[[menu.main]]
+    name = "Cibinong"
+    url = "/cari/"
+    parent = "wilayah"
+    weight = 5
+    [menu.main.params]
+      href = "/cari/?q=cibinong"
+
+[[menu.main]]
+    name = "Hambalang"
+    url = "/cari/"
+    parent = "wilayah"
+    weight = 6
+    [menu.main.params]
+      href = "/cari/?q=hambalang"
+
+[[menu.main]]
+    name = "Bojong Koneng"
+    url = "/cari/"
+    parent = "wilayah"
+    weight = 7
+    [menu.main.params]
+      href = "/cari/?q=bojong+koneng"
+
+[[menu.main]]
+    name = "Cijayanti"
+    url = "/cari/"
+    parent = "wilayah"
+    weight = 8
+    [menu.main.params]
+      href = "/cari/?q=cijayanti"
+
+[[menu.main]]
+    name = "Cikeas"
+    url = "/cari/"
+    parent = "wilayah"
+    weight = 9
+    [menu.main.params]
+      href = "/cari/?q=cikeas"
+
+[[menu.main]]
+    name = "Gunung Pancar"
+    url = "/cari/"
+    parent = "wilayah"
+    weight = 10
+    [menu.main.params]
+      href = "/cari/?q=gunung+pancar"
+
+[[menu.main]]
+    name = "Megamendung"
+    url = "/cari/"
+    parent = "wilayah"
+    weight = 11
+    [menu.main.params]
+      href = "/cari/?q=megamendung"
+
+[[menu.main]]
+    name = "Sukamakmur"
+    url = "/cari/"
+    parent = "wilayah"
+    weight = 12
+    [menu.main.params]
+      href = "/cari/?q=sukamakmur"
+
+[[menu.main]]
+    name = "Jual"
+    url = "/jual/"
+    weight = 3
+
+[[menu.main]]
+    name = "Toko"
+    url = "/toko/"
+    weight = 4
+
+[[menu.main]]
+    name = "Promo"
+    url = "/promo/"
+    weight = 5
+
+[[menu.main]]
+    name = "Profile"
+    url = "/profile/"
+    weight = 6
+
+[markup]
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 5
+    ordered = false
+
+  # Wajib: tabel hasil AI (tools/lib/safe-table.js) dirender sebagai HTML mentah
+  # (<table class="table">), yang hanya dipertahankan Hugo jika unsafe = true.
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+# ---- Data shortcode {{< table-tables table="table1|table2|table3" >}} ----
+# PERHATIAN: harga disalin dari toko pusat; samakan dengan harga yang berlaku untuk Sentul.
+[[params.tabelItems]]
+name = "Besi 12 full"
+price = "Rp111.500"
+[[params.tabelItems]]
+name = "Besi 10 full"
+price = "Rp79.000"
+[[params.tabelItems]]
+name = "Besi 8 full"
+price = "Rp50.500"
+[[params.tabelItems]]
+name = "Besi 6 full"
+price = "Rp31.000"
+[[params.tabelItems]]
+name = "Besi 6"
+price = "Rp32.000"
+[[params.tabelItems]]
+name = "Besi 8"
+price = "Rp42.000"
+[[params.tabelItems]]
+name = "Besi 10"
+price = "Rp62.000"
+[[params.tabelItems]]
+name = "Besi 12"
+price = "Rp94.000"
+[[params.tabelItems]]
+name = "Besi 13"
+price = "Rp105.000"
+[[params.tabelItems]]
+name = "Besi 16"
+price = "Rp157.500"
+[[params.tabelItems]]
+name = "Bondek (per meter)"
+price = "Rp110.000"
+[[params.tabelItems]]
+name = "Wiremesh M8"
+price = "Rp480.000"
+[[params.tabelItems]]
+name = "Wiremesh M10"
+price = "Rp765.000"
+
+# Kunci di appliList / kegunaanList HARUS sama persis dengan `name` di tabelItems.
+# table1: kolom "Aplikasi Utama"
+[params.appliList]
+"Besi 6 full" = "Sengkang dan begel"
+"Besi 8 full" = "Sengkang, pelat lantai ringan"
+"Besi 10 full" = "Rumah tinggal, ruko"
+"Besi 12 full" = "Bangunan bertingkat rendah"
+"Besi 6" = "Sengkang dan begel"
+"Besi 8" = "Sengkang, pelat lantai ringan"
+"Besi 10" = "Rumah tinggal, ruko"
+"Besi 12" = "Bangunan bertingkat rendah"
+"Besi 13" = "Bangunan bertingkat rendah"
+"Besi 16" = "Struktur bangunan yang lebih berat"
+"Bondek (per meter)" = "Lantai dak dan pelat"
+"Wiremesh M8" = "Cor dak dan lantai"
+"Wiremesh M10" = "Pelat lantai dan jalan beton"
+
+# table2: kolom "Kegunaan Utama"
+[params.kegunaanList]
+"Besi 6 full" = "Pengikat tulangan kolom dan balok"
+"Besi 8 full" = "Pengikat tulangan dan tulangan pelat"
+"Besi 10 full" = "Tulangan sloof, kolom, dan balok"
+"Besi 12 full" = "Tulangan utama kolom dan balok"
+"Besi 6" = "Pengikat tulangan kolom dan balok"
+"Besi 8" = "Pengikat tulangan dan tulangan pelat"
+"Besi 10" = "Tulangan sloof, kolom, dan balok"
+"Besi 12" = "Tulangan utama kolom dan balok"
+"Besi 13" = "Tulangan utama kolom dan balok"
+"Besi 16" = "Tulangan utama elemen struktur"
+"Bondek (per meter)" = "Alas cor pelat lantai"
+"Wiremesh M8" = "Tulangan pelat lantai"
+"Wiremesh M10" = "Tulangan pelat lantai dan jalan beton"
+
+# table3: kolom "Jenis Layanan" dan "Biaya (Rp)"
+[[params.pumpItems]]
+type = "Pengiriman ke lokasi proyek di Sentul dan sekitarnya"
+price = "Hubungi Kami"
