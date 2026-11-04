@@ -1,0 +1,16 @@
+{
+  "fixed": [
+    "/jual/harga-besi-dan-baja-di-cirimekar/",
+    "/jual/harga-besi-dan-baja-di-ciriung/",
+    "/jual/harga-besi-dan-baja-di-desa-babakan-madang/",
+    "/jual/harga-besi-dan-baja-di-desa-cibanon-kecamatan-sukaraja/",
+    "/jual/harga-besi-dan-baja-di-desa-cibanon/",
+    "/jual/harga-besi-dan-baja-di-desa-cijayanti-kecamatan-babakan-madang/"
+  ],
+  "failed": {
+    "/jual/harga-besi-dan-baja-di-cadas-ngampar/": 1,
+    "/jual/harga-besi-dan-baja-di-cilebut-barat/": 1,
+    "/jual/harga-besi-dan-baja-di-cipambuan/": 1,
+    "/jual/harga-besi-dan-baja-di-desa-cijujung/": 1
+  }
+}

@@ -1,6 +1,7 @@
 ---
 title: "Sedia Besi dan Baja di Gunung Pancar"
 date: "2024-07-01"
+lastmod: "2026-11-04"
 categories: ["jual"]
 type: "product"
 description: "Sedia Besi dan Baja dijual di Gunung Pancar Terdekat. Apabila Anda sedang mencari solusi konstruksi yang tahan lama dan andal, Sedia Besi dan Baja adalah opsi yang tepat. Baik untuk..."
@@ -21,7 +22,7 @@ Di sektor konstruksi, bahan **Sedia Besi dan Baja** sering dipakai dalam kompone
 
 ## Detail dan Pilihan Produk
 
-Berikut adalah sejumlah jenis besi dan baja yang umum ditemukan di pasaran:
+Berikut adalah sejumlah jenis besi dan baja yang umum ditemukan di pasaran: [harga besi dan baja di Desa Babakan Madang](/jual/harga-besi-dan-baja-di-desa-babakan-madang/) menawarkan berbagai pilihan untuk kebutuhan konstruksi Anda.
 
 | Jenis/Ukuran        | Spesifikasi                      | Kegunaan                          |
 |---------------------|----------------------------------|-----------------------------------|
