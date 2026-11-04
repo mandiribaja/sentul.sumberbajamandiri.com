@@ -30,8 +30,8 @@ disableKinds = ["taxonomy", "term"]
     # ---- Kontak Sentul: lengkapi dengan nomor dan alamat resmi sebelum deploy ----
     email = "sumberbajamandiribogor@gmail.com"   # email pusat; ganti jika Sentul punya email sendiri
     phone = "0821-2549-8008"
-    telepon = "//+6282125498008"
-    whatsapp = "//api.whatsapp.com/send?phone=6282125498008&text=Halo%20Sumber%20Baja%20Mandiri%20Sentul"
+    telepon = "//+6289603996144"
+    whatsapp = "//api.whatsapp.com/send?phone=6289603996144&text=Halo%20Sumber%20Baja%20Mandiri%20Sentul"
     address = "Dekat Lula Kost, Jl. Pahlawan, RT.4/RW.6, Leuwinutug, Kec. Citeureup, Kabupaten Bogor, Jawa Barat 16810"
     year = 2026
     DateForm = "2 January 2006"
@@ -62,14 +62,14 @@ disableKinds = ["taxonomy", "term"]
     poweredBy = '<a href="https://sumberbajamandiri.com" rel="poweredby">Sumber Baja Mandiri</a>'
 
     # ---- Halaman Promo (/promo/) ----
-    checkoutWa = "6282125498008"
+    checkoutWa = "6289603996144"
     # promoEndDate = "2026-12-31T23:59:59"
 
     # ---- Halaman Profile (/profile/) ----
     # Bagian yang kosong otomatis tidak ditampilkan.
     nameuser = "Sumber Baja Mandiri Sentul"
     jobuser = "Penyedia Besi dan Baja untuk Wilayah Sentul dan Sekitarnya"
-    phoneuser = "0821-2549-8008"
+    phoneuser = "0896-0399-6144 (Permadi) / 0821-2549-8008 (Riri) / 0821-2549-8003 (Siti)"
     emailuser = "sumberbajamandiribogor@gmail.com"
     addressuser = "Dekat Lula Kost, Jl. Pahlawan, RT.4/RW.6, Leuwinutug, Kec. Citeureup, Kabupaten Bogor, Jawa Barat 16810"
     website = "https://sentul.sumberbajamandiri.com"
