@@ -262,6 +262,14 @@ tbody tr:nth-child(even) { background: var(--bg); }
   .nav-search.open button { background: var(--blue); border-color: var(--blue); color: #fff; border-radius: 0 4px 4px 0; }
 }
 
+/* Hover pada elemen berlatar warna: teks tetap putih. Tanpa ini aturan global `a:hover { color: merah }`
+   membuat teks merah di atas latar merah (bar Telepon di mobile) sehingga tidak terlihat. */
+.float-bar:hover, .float-bar:focus { color: #fff; }
+.float-bar.wa:hover { background: #17874a; }
+.float-bar.tel:hover { background: var(--red-dark); }
+.pagination .active a:hover, .pagination .active .page-link:hover { color: #fff; }
+.skip-link:hover { color: #fff; }
+
 /* ---------- Responsif ---------- */
 @media (max-width: 991px) {
   .post-grid, .product-grid, .testimonial-slider { grid-template-columns: repeat(2, 1fr); }
