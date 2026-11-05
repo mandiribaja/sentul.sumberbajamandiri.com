@@ -19,7 +19,15 @@
     "/jual/harga-besi-dan-baja-di-desa-karang-asem-timur/",
     "/jual/harga-besi-dan-baja-di-desa-nagrak/",
     "/jual/harga-besi-dan-baja-di-desa-tangkil/",
-    "/jual/harga-besi-dan-baja-di-desa-tarikolot/"
+    "/jual/harga-besi-dan-baja-di-desa-tarikolot/",
+    "/jual/harga-besi-dan-baja-di-desa-leuwinutug-kecamatan-citeureup/",
+    "/jual/harga-besi-dan-baja-di-desa-sentul-kecamatan-babakan-madang/",
+    "/jual/harga-besi-dan-baja-di-kelurahan-cibinong/",
+    "/jual/harga-besi-dan-baja-di-kelurahan-ciriung-kecamatan-cibinong/",
+    "/jual/harga-besi-dan-baja-di-kelurahan-karadenan/",
+    "/jual/harga-besi-dan-baja-di-kelurahan-pondok-rajeg/",
+    "/jual/harga-besi-dan-baja-di-kelurahan-sukahati-kecamatan-cibinong/",
+    "/jual/harga-besi-dan-baja-di-pakansari/"
   ],
   "failed": {
     "/jual/harga-besi-dan-baja-di-cadas-ngampar/": 1,
@@ -31,12 +39,18 @@
     "/jual/harga-besi-dan-baja-di-desa-hambalang/": 2,
     "/jual/harga-besi-dan-baja-di-desa-kadumanggu-kecamatan-babakan-madang/": 1,
     "/jual/harga-besi-dan-baja-di-desa-leuwinutug-kecamatan-citeureup/": 1,
-    "/jual/harga-besi-dan-baja-di-desa-nagrak-kecamatan-sukaraja/": 1,
-    "/jual/harga-besi-dan-baja-di-desa-pasir-mukti/": 1,
+    "/jual/harga-besi-dan-baja-di-desa-nagrak-kecamatan-sukaraja/": 2,
+    "/jual/harga-besi-dan-baja-di-desa-pasir-mukti/": 2,
     "/jual/harga-besi-dan-baja-di-desa-sentul-kecamatan-babakan-madang/": 1,
-    "/jual/harga-besi-dan-baja-di-desa-tajur-kecamatan-citeureup/": 1,
-    "/jual/harga-besi-dan-baja-di-gunung-sari/": 1,
-    "/jual/harga-besi-dan-baja-di-karang-asem-barat/": 1,
-    "/jual/harga-besi-dan-baja-di-kawasan-gunung-pancar/": 1
+    "/jual/harga-besi-dan-baja-di-desa-tajur-kecamatan-citeureup/": 2,
+    "/jual/harga-besi-dan-baja-di-gunung-sari/": 2,
+    "/jual/harga-besi-dan-baja-di-karang-asem-barat/": 2,
+    "/jual/harga-besi-dan-baja-di-kawasan-gunung-pancar/": 2,
+    "/jual/harga-besi-dan-baja-di-kecamatan-citeureup/": 1,
+    "/jual/harga-besi-dan-baja-di-kelurahan-cibinong-kecamatan-cibinong/": 1,
+    "/jual/harga-besi-dan-baja-di-kelurahan-tengah/": 1,
+    "/jual/harga-besi-dan-baja-di-pabuaran-mekar/": 1,
+    "/jual/harga-besi-dan-baja-di-pabuaran/": 1,
+    "/jual/harga-besi-dan-baja-di-pasirlaja/": 1
   }
 }
