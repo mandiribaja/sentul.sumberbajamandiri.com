@@ -1,6 +1,7 @@
 ---
 title: "Toko Besi dan Baja di Desa Babakan Madang Kecamatan Babakan Madang"
 date: "2025-06-27"
+lastmod: "2026-11-08"
 categories: ["toko"]
 type: "product"
 description: "Toko Besi dan Baja dijual di Desa Babakan Madang Kecamatan Babakan Madang Terdekat. Jika Anda sedang mencari solusi terbaik untuk keperluan konstruksi, perbaikan rumah, atau proyek industri, Toko Besi dan Baja..."
