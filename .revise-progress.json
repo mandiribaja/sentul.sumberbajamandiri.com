@@ -161,7 +161,16 @@
     "/jual/jual-besi-murah-di-pabuaran-mekar/",
     "/jual/jual-besi-murah-di-pakansari/",
     "/jual/jual-besi-murah-di-pondok-rajeg/",
-    "/jual/jual-besi-murah-di-tajur/"
+    "/jual/jual-besi-murah-di-tajur/",
+    "/jual/jual-besi-murah-di-leuwinutug/",
+    "/jual/jual-besi-murah-di-sukahati/",
+    "/jual/jual-hollow-wiremesh-bondek-di-bojong-koneng/",
+    "/jual/jual-hollow-wiremesh-bondek-di-cibanon/",
+    "/jual/jual-hollow-wiremesh-bondek-di-cijayanti/",
+    "/jual/jual-hollow-wiremesh-bondek-di-cikeas/",
+    "/jual/jual-hollow-wiremesh-bondek-di-desa-babakan-madang-kecamatan-babakan-madang/",
+    "/jual/jual-hollow-wiremesh-bondek-di-desa-cadas-ngampar/",
+    "/jual/jual-hollow-wiremesh-bondek-di-desa-cijayanti-kecamatan-babakan-madang/"
   ],
   "failed": {
     "/jual/harga-besi-dan-baja-di-cadas-ngampar/": 1,
@@ -274,13 +283,18 @@
     "/jual/jual-besi-murah-di-kawasan-sentul/": 2,
     "/jual/jual-besi-murah-di-kecamatan-citeureup/": 2,
     "/jual/jual-besi-murah-di-kelurahan-cibinong/": 1,
-    "/jual/jual-besi-murah-di-kelurahan-karadenan-kecamatan-cibinong/": 1,
-    "/jual/jual-besi-murah-di-kelurahan-pakansari-kecamatan-cibinong/": 1,
-    "/jual/jual-besi-murah-di-kelurahan-pondok-rajeg/": 1,
+    "/jual/jual-besi-murah-di-kelurahan-karadenan-kecamatan-cibinong/": 2,
+    "/jual/jual-besi-murah-di-kelurahan-pakansari-kecamatan-cibinong/": 2,
+    "/jual/jual-besi-murah-di-kelurahan-pondok-rajeg/": 2,
     "/jual/jual-besi-murah-di-leuwinutug/": 1,
-    "/jual/jual-besi-murah-di-puspasari/": 1,
-    "/jual/jual-besi-murah-di-sentul-bogor/": 1,
+    "/jual/jual-besi-murah-di-puspasari/": 2,
+    "/jual/jual-besi-murah-di-sentul-bogor/": 2,
     "/jual/jual-besi-murah-di-sukahati/": 1,
-    "/jual/jual-besi-murah-di-tengah/": 1
+    "/jual/jual-besi-murah-di-tengah/": 2,
+    "/jual/jual-hollow-wiremesh-bondek-di-cibinong/": 1,
+    "/jual/jual-hollow-wiremesh-bondek-di-cipambuan/": 1,
+    "/jual/jual-hollow-wiremesh-bondek-di-cirimekar/": 1,
+    "/jual/jual-hollow-wiremesh-bondek-di-desa-cibanon-kecamatan-sukaraja/": 1,
+    "/jual/jual-hollow-wiremesh-bondek-di-desa-cikeas-kecamatan-sukaraja/": 1
   }
 }
