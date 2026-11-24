@@ -187,7 +187,15 @@
     "/jual/jual-hollow-wiremesh-bondek-di-kelurahan-harapan-jaya-kecamatan-cibinong/",
     "/jual/jual-hollow-wiremesh-bondek-di-pakansari/",
     "/jual/jual-hollow-wiremesh-bondek-di-sukahati/",
-    "/jual/jual-hollow-wiremesh-bondek-di-tajur/"
+    "/jual/jual-hollow-wiremesh-bondek-di-tajur/",
+    "/jual/jual-hollow-wiremesh-bondek-di-kelurahan-pakansari/",
+    "/jual/jual-hollow-wiremesh-bondek-di-sentul-city/",
+    "/jual/sedia-besi-dan-baja-di-cilebut-barat/",
+    "/jual/sedia-besi-dan-baja-di-cilebut-timur/",
+    "/jual/sedia-besi-dan-baja-di-citaringgul/",
+    "/jual/sedia-besi-dan-baja-di-desa-cibanon-kecamatan-sukaraja/",
+    "/jual/sedia-besi-dan-baja-di-desa-cijujung-kecamatan-sukaraja/",
+    "/jual/sedia-besi-dan-baja-di-desa-citeureup-kecamatan-citeureup/"
   ],
   "failed": {
     "/jual/harga-besi-dan-baja-di-cadas-ngampar/": 1,
@@ -320,13 +328,19 @@
     "/jual/jual-hollow-wiremesh-bondek-di-desa-sukaraja-kecamatan-sukaraja/": 1,
     "/jual/jual-hollow-wiremesh-bondek-di-desa-sukaraja/": 2,
     "/jual/jual-hollow-wiremesh-bondek-di-desa-sumur-batu-kecamatan-babakan-madang/": 2,
-    "/jual/jual-hollow-wiremesh-bondek-di-kelurahan-pabuaran-mekar-kecamatan-cibinong/": 1,
+    "/jual/jual-hollow-wiremesh-bondek-di-kelurahan-pabuaran-mekar-kecamatan-cibinong/": 2,
     "/jual/jual-hollow-wiremesh-bondek-di-kelurahan-pakansari/": 1,
-    "/jual/jual-hollow-wiremesh-bondek-di-kelurahan-pondok-rajeg/": 1,
-    "/jual/jual-hollow-wiremesh-bondek-di-pasir-mukti/": 1,
+    "/jual/jual-hollow-wiremesh-bondek-di-kelurahan-pondok-rajeg/": 2,
+    "/jual/jual-hollow-wiremesh-bondek-di-pasir-mukti/": 2,
     "/jual/jual-hollow-wiremesh-bondek-di-sentul-city/": 1,
-    "/jual/jual-hollow-wiremesh-bondek-di-sentul/": 1,
-    "/jual/jual-hollow-wiremesh-bondek-di-tangkil/": 1,
-    "/jual/sedia-besi-dan-baja-di-cadas-ngampar/": 1
+    "/jual/jual-hollow-wiremesh-bondek-di-sentul/": 2,
+    "/jual/jual-hollow-wiremesh-bondek-di-tangkil/": 2,
+    "/jual/sedia-besi-dan-baja-di-cadas-ngampar/": 2,
+    "/jual/sedia-besi-dan-baja-di-desa-babakan-madang/": 1,
+    "/jual/sedia-besi-dan-baja-di-desa-bojong-koneng/": 1,
+    "/jual/sedia-besi-dan-baja-di-desa-cadas-ngampar-kecamatan-sukaraja/": 1,
+    "/jual/sedia-besi-dan-baja-di-desa-cimandala-kecamatan-sukaraja/": 1,
+    "/jual/sedia-besi-dan-baja-di-desa-gunung-geulis-kecamatan-sukaraja/": 1,
+    "/jual/sedia-besi-dan-baja-di-desa-karang-asem-timur/": 1
   }
 }
