@@ -218,7 +218,13 @@
     "/jual/sedia-besi-dan-baja-di-leuwinutug/",
     "/jual/sedia-besi-dan-baja-di-pasirjambu/",
     "/jual/sedia-besi-dan-baja-di-sentul-bogor/",
-    "/jual/sedia-besi-murah-di-cirimekar/"
+    "/jual/sedia-besi-murah-di-cirimekar/",
+    "/jual/sedia-besi-dan-baja-di-kelurahan-pondok-rajeg-kecamatan-cibinong/",
+    "/jual/sedia-besi-murah-di-cimandala/",
+    "/jual/sedia-besi-murah-di-ciriung/",
+    "/jual/sedia-besi-murah-di-desa-cijujung/",
+    "/jual/sedia-besi-murah-di-desa-cilebut-timur/",
+    "/jual/sedia-besi-murah-di-desa-cipambuan-kecamatan-babakan-madang/"
   ],
   "failed": {
     "/jual/harga-besi-dan-baja-di-cadas-ngampar/": 1,
@@ -369,15 +375,21 @@
     "/jual/sedia-besi-dan-baja-di-desa-tangkil-kecamatan-citeureup/": 1,
     "/jual/sedia-besi-dan-baja-di-karang-asem-barat/": 2,
     "/jual/sedia-besi-dan-baja-di-kawasan-sentul/": 2,
-    "/jual/sedia-besi-dan-baja-di-kelurahan-pabuaran-mekar/": 1,
+    "/jual/sedia-besi-dan-baja-di-kelurahan-pabuaran-mekar/": 2,
     "/jual/sedia-besi-dan-baja-di-kelurahan-pondok-rajeg-kecamatan-cibinong/": 1,
-    "/jual/sedia-besi-dan-baja-di-kelurahan-sukahati/": 1,
-    "/jual/sedia-besi-dan-baja-di-kelurahan-tengah-kecamatan-cibinong/": 1,
-    "/jual/sedia-besi-dan-baja-di-sukahati-cibinong/": 1,
-    "/jual/sedia-besi-dan-baja-di-sukahati/": 1,
-    "/jual/sedia-besi-murah-di-bojong-koneng/": 1,
-    "/jual/sedia-besi-murah-di-cibinong/": 1,
+    "/jual/sedia-besi-dan-baja-di-kelurahan-sukahati/": 2,
+    "/jual/sedia-besi-dan-baja-di-kelurahan-tengah-kecamatan-cibinong/": 2,
+    "/jual/sedia-besi-dan-baja-di-sukahati-cibinong/": 2,
+    "/jual/sedia-besi-dan-baja-di-sukahati/": 2,
+    "/jual/sedia-besi-murah-di-bojong-koneng/": 2,
+    "/jual/sedia-besi-murah-di-cibinong/": 2,
     "/jual/sedia-besi-murah-di-cimandala/": 1,
-    "/jual/sedia-besi-murah-di-cipambuan/": 1
+    "/jual/sedia-besi-murah-di-cipambuan/": 2,
+    "/jual/sedia-besi-murah-di-desa-bojong-koneng-kecamatan-babakan-madang/": 1,
+    "/jual/sedia-besi-murah-di-desa-cilebut-barat-kecamatan-sukaraja/": 1,
+    "/jual/sedia-besi-murah-di-desa-cipambuan/": 1,
+    "/jual/sedia-besi-murah-di-desa-citaringgul-kecamatan-babakan-madang/": 1,
+    "/jual/sedia-besi-murah-di-desa-citeureup-kecamatan-citeureup/": 1,
+    "/jual/sedia-besi-murah-di-desa-citeureup/": 1
   }
 }
